@@ -37,15 +37,19 @@
 7. SFT(finetuning) training setup and configuration
 8. dataset shuffled and splitted to training,validation,testing
 9. parameters are finally configured, ready to train our QLoRA model
-10. failed to download model again and again due to available RAM crashes
+10. failed(crashes) to download model again and again due to unsufficient available RAM 
+11.  again trying : crashed again after downloading 47 percent from disk
+12. optimization : direct download to disk, off load gpu into cpu , max seq length reduction 2048 to 1024, batch    size reduction 4 to 1, max positin embedding reduction 8192 to 2048...
+13. those optimization still not sufficient so ...................shiting to Llama-3.2-1B
 
-<!--  training started : 8.30 AM (13-03-26) -->
+
 
 <h3> Encountered issues and challanges -- </h3>
 
 1. Available colab RAM crash during basse model download(12-13 GB)
-    1. download quantized base model directly in GPU instead of CPU to GPU
-    2. download quantized base model directly in disk then load it to GPU
+    1. download quantized base model directly in GPU instead of CPU to GPU (by providing parameter low-cpu-use)
+    2. download quantized base model directly in disk then load it to GPU (by using snapshot download)
+    3. enable gpu offload to utilize cpu memory too (GPU VRAM is not sufficient(14.56 GB)) 
 
 
 <h3> Optimization and improvement -- </h3>
@@ -54,6 +58,7 @@
 2. train model to ask at most 3 follow ups
 3. build system architecture
 4. evaluation of responses
-5. show up numbers optimized by x percentage 
+5. show up numbers optimized by x percentage
+6. organize readme(documentation) in a proper way
 
 
